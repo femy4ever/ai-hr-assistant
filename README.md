@@ -8,13 +8,33 @@ This event is about exploring practical, lightweight uses of AI. What can we bui
 
 We’re keeping it deliberately simple with one core task and an optional extra:
 
-A HR chatbot that can answer questions using policy text.
+* A HR chatbot that can answer questions using policy text.
 
-A recommender that matches staff to roles based on skills.
+* A recommender that matches staff to roles based on skills.
 
 These are small problems where AI solutions can shine and provide immediate value.
 
 Today is a chance to see how this works in practice and start spotting similar opportunities in our own teams and projects.
+
+## Timetable
+
+*10:00 AM* - Welcome and Introduction
+
+*10:15 AM* - Planning
+
+*10:30 AM* - Build 1
+
+*12:30 PM* - Lunch
+
+*13:30 PM* - Recap & Planning
+
+*13:45 PM* - Build 2
+
+*15:45 PM* - Finishing Touches
+
+*16:00 PM* - Demo & Discuss
+
+*17:00 PM* - It's Over
 
 ## Tooling
 
