@@ -1,7 +1,7 @@
 from pathlib import Path
 from interface import Interface
 import pandas as pd
-
+from dotenv import load_dotenv
 
 def load_policies(policy_dir: str):
     policy_files = Path(policy_dir).glob("*.txt")
@@ -16,8 +16,7 @@ def load_policies(policy_dir: str):
 
 
 def main():
-    policy_path = "../Policies"
-    staff_path = "../Data/staff.csv"
+    policy_path = "./Policies"
 
     print("Initialising HR assistant...")
     hr = Interface("hr_policies")
@@ -38,4 +37,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     main()
