@@ -1,9 +1,10 @@
-import streamlit as st
-from interface import Interface
-from pathlib import Path
-from dotenv import load_dotenv
-from load_policies import load_policies
+import time
 from typing import List
+
+import streamlit as st
+from dotenv import load_dotenv
+from interface import Interface
+from load_policies import load_policies
 
 load_dotenv()
 
@@ -20,8 +21,7 @@ def load_and_add_policies(policies: List[str]):
         chatbot.add_policy(name, text)
     return chatbot
 
-def fake_streaming_response(response: str):
-    import time
+def fake_streaming_response(response: str):    
     for word in response.split():
         yield word + " "
         time.sleep(0.05)
