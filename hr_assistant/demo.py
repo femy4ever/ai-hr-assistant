@@ -5,26 +5,25 @@ from dotenv import load_dotenv
 
 def load_policies(policy_dir: str):
     policy_files = Path(policy_dir).glob("*.txt")
-    policies = {}
 
     for file in policy_files:
         name = file.stem
-        with open(file, "r") as f:
-            policies[name] = f.read()
+        yield name, file.read_text()
 
-    return policies
-
-
-def main():
-    policy_path = "./Policies"
+def initialise()
+    policy_path = Path(__file__).parent.parent.join_path("Policies")
 
     print("Initialising HR assistant...")
     hr = Interface("hr_policies")
 
     print("Loading policies...")
-    policies = load_policies(policy_path)
-    for name, text in policies.items():
+    for name, text in load_policies(policy_path):
         hr.add_policy(name, text)
+    return hr
+
+def main():
+
+    hr = initialise()
 
     print("------ HR Chatbot Demo ------")
     print("Type: exit to exit")

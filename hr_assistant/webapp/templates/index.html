@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTMX Example</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <h2>HTMX FastAPI Demo</h2>
+
+    <form
+        hx-post="/process"
+        hx-target="#response"
+        hx-swap="innerHTML"
+    >
+        <input type="text" name="user_text" placeholder="Type here" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="response" style="margin-top:20px;"></div>
+</body>
+</html>
