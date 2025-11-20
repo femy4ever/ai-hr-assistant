@@ -3,19 +3,79 @@
 <head>
     <title>HTMX Example</title>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        button {
+            margin-top: 12px;
+            background: #4a74f5;
+            color: white;
+            padding: 10px 18px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3d61d1;
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eef2ff;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>HTMX FastAPI Demo</h2>
+    <div class="container">
+        <h2>HTMX FastAPI Demo</h2>
 
-    <form
-        hx-post="/process"
-        hx-target="#response"
-        hx-swap="innerHTML"
-    >
-        <input type="text" name="user_text" placeholder="Type here" required>
-        <button type="submit">Send</button>
-    </form>
+        <form
+            hx-post="/process"
+            hx-target="#response"
+            hx-swap="innerHTML"
+        >
+            <textarea name="user_text" placeholder="Write something here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
 
-    <div id="response" style="margin-top:20px;"></div>
+        <div id="response"></div>
+    </div>
 </body>
 </html>

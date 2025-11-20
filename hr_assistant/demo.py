@@ -1,17 +1,17 @@
 from pathlib import Path
 import time
-from interface import Interface
 from dotenv import load_dotenv
+from hr_assistant.interface import Interface
 
-def load_policies(policy_dir: str):
-    policy_files = Path(policy_dir).glob("*.txt")
+def load_policies(policy_dir: Path):
+    policy_files = policy_dir.glob("*.txt")
 
     for file in policy_files:
         name = file.stem
         yield name, file.read_text()
 
-def initialise()
-    policy_path = Path(__file__).parent.parent.join_path("Policies")
+def initialise():
+    policy_path = Path(__file__).parent.parent.joinpath("Policies")
 
     print("Initialising HR assistant...")
     hr = Interface("hr_policies")
