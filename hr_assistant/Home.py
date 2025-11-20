@@ -20,6 +20,12 @@ def load_and_add_policies(policies: List[str]):
         chatbot.add_policy(name, text)
     return chatbot
 
+def fake_streaming_response(response: str):
+    import time
+    for word in response.split():
+        yield word + " "
+        time.sleep(0.05)
+
 policies = _load_policies("./Policies")
 chatbot = load_and_add_policies(policies)
 
@@ -31,4 +37,4 @@ prompt = st.chat_input("Ask")
 if prompt:
     chatbot_response = chatbot.ask(prompt)
     st.chat_message("user").write(prompt)
-    st.chat_message("assistant").write(chatbot_response)
+    st.chat_message("assistant").write_stream(fake_streaming_response(chatbot_response))
