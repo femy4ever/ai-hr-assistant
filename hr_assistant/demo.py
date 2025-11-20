@@ -1,37 +1,48 @@
+import time
 from pathlib import Path
-from interface import Interface
-import pandas as pd
+
 from dotenv import load_dotenv
 
-def load_policies(policy_dir: str):
-    policy_files = Path(policy_dir).glob("*.txt")
-    policies = {}
+from hr_assistant.interface import Interface
+
+
+def load_policies(policy_dir: Path):
+    policy_files = policy_dir.glob("*.txt")
 
     for file in policy_files:
         name = file.stem
-        with open(file, "r") as f:
-            policies[name] = f.read()
-
-    return policies
+        yield name, file.read_text()
 
 
-def main():
-    policy_path = "./Policies"
+def initialise():
+    policy_path = Path(__file__).parent.parent.joinpath("Policies")
 
     print("Initialising HR assistant...")
     hr = Interface("hr_policies")
 
     print("Loading policies...")
-    policies = load_policies(policy_path)
-    for name, text in policies.items():
+    for name, text in load_policies(policy_path):
         hr.add_policy(name, text)
+    return hr
+
+
+def main():
+
+    hr = initialise()
 
     print("------ HR Chatbot Demo ------")
-    print("Q: How many days annual leave do I get?")
-    print("A:", hr.ask("How many days annual leave do I get?"), "\n")
+    print("Type: exit to exit")
+    while True:
+        question = input("Q: ").strip()
+        if question.strip().lower() == "exit":
+            break
 
-    print("Q: Can I work from home?")
-    print("A:", hr.ask("Can I work from home?"), "\n")
+        while True:
+            try:
+                print("A:", hr.ask(question), end="\n\n")
+                break
+            except Exception as e:
+                time.sleep(1)
 
     print("Exiting...")
 
