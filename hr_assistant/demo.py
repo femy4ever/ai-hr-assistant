@@ -1,6 +1,6 @@
 from pathlib import Path
+import time
 from interface import Interface
-import pandas as pd
 from dotenv import load_dotenv
 
 def load_policies(policy_dir: str):
@@ -27,11 +27,20 @@ def main():
         hr.add_policy(name, text)
 
     print("------ HR Chatbot Demo ------")
-    print("Q: How many days annual leave do I get?")
-    print("A:", hr.ask("How many days annual leave do I get?"), "\n")
+    print("Type: exit to exit")
+    while True:
+        question = input("Q: ").strip()
+        if question.strip().lower() == "exit":
+            break
 
-    print("Q: Can I work from home?")
-    print("A:", hr.ask("Can I work from home?"), "\n")
+        while True:
+            try:
+                print("A:", hr.ask(question), end="\n\n")
+                break
+            except Exception as e:
+                time.sleep(1)
+
+
 
     print("Exiting...")
 
