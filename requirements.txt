@@ -14,6 +14,7 @@ click==8.3.0
 coloredlogs==15.0.1
 distro==1.9.0
 durationpy==0.10
+fastapi
 filelock==3.20.0
 flatbuffers==25.9.23
 fsspec==2025.10.0
@@ -80,6 +81,7 @@ PyPika==0.48.9
 pyproject_hooks==1.2.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
+python-multipart
 pytz==2025.2
 PyYAML==6.0.3
 referencing==0.37.0

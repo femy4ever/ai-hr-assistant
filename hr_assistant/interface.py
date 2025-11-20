@@ -1,4 +1,5 @@
 import os
+
 import chromadb
 from chromadb.utils import embedding_functions
 from google import genai
@@ -28,22 +29,24 @@ class Interface:
         )
 
     def _chunk_text(self, text: str, chunk_size=100, overlap=20):
-        words = text.split()
-        step = chunk_size - overlap
-        chunks = []
-        for i in range(0, len(words), step):
-            chunk = " ".join(words[i : i + chunk_size])
-            chunks.append(chunk)
-        return chunks
+        # split based on paragraph, double new lines
+        return text.split("\n\n")
 
     def add_policy(self, policy_name: str, policy_text: str):
         chunks = self._chunk_text(policy_text)
         ids = [f"policy_{policy_name}_{i}" for i in range(len(chunks))]
         self.collection.add(documents=chunks, ids=ids)
 
-    def ask(self, question: str, n_results=3):
+    def ask(self, question: str, n_results=20):
         results = self.collection.query(query_texts=[question], n_results=n_results)
         documents = results.get("documents", [[]])[0]
+        distances = results.get("distances", [[]])[0]
+
+        documents = [
+            document
+            for document, distance in zip(documents, distances)
+            if distance < 0.3
+        ]
 
         if not documents:
             return "No relevant policy information found."
@@ -51,7 +54,7 @@ class Interface:
         context = "\n".join(documents)
 
         prompt = (
-            "You are an HR assistant. Answer ONLY using the context below.\n\n"
+            "You are an HR assistant. Answer using the context below.\n\n"
             f"Context:\n{context}\n\n"
             f"Question: {question}"
         )
