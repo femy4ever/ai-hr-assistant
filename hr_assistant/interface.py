@@ -1,4 +1,5 @@
 import os
+
 import chromadb
 from chromadb.utils import embedding_functions
 from google import genai
@@ -41,8 +42,11 @@ class Interface:
         documents = results.get("documents", [[]])[0]
         distances = results.get("distances", [[]])[0]
 
-        documents = [document for document, distance in zip(documents, distances) if distance < 0.3]
-
+        documents = [
+            document
+            for document, distance in zip(documents, distances)
+            if distance < 0.3
+        ]
 
         if not documents:
             return "No relevant policy information found."

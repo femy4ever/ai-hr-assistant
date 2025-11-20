@@ -1,7 +1,10 @@
-from pathlib import Path
 import time
+from pathlib import Path
+
 from dotenv import load_dotenv
+
 from hr_assistant.interface import Interface
+
 
 def load_policies(policy_dir: Path):
     policy_files = policy_dir.glob("*.txt")
@@ -9,6 +12,7 @@ def load_policies(policy_dir: Path):
     for file in policy_files:
         name = file.stem
         yield name, file.read_text()
+
 
 def initialise():
     policy_path = Path(__file__).parent.parent.joinpath("Policies")
@@ -20,6 +24,7 @@ def initialise():
     for name, text in load_policies(policy_path):
         hr.add_policy(name, text)
     return hr
+
 
 def main():
 
@@ -38,8 +43,6 @@ def main():
                 break
             except Exception as e:
                 time.sleep(1)
-
-
 
     print("Exiting...")
 

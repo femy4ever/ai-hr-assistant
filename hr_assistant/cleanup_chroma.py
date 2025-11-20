@@ -1,5 +1,6 @@
-import shutil
 import os
+import shutil
+
 
 def cleanup():
     path = os.path.expanduser("~/.chromadb")
@@ -8,6 +9,7 @@ def cleanup():
         print("Chroma cache cleared.")
     else:
         print("No Chroma cache found.")
+
 
 if __name__ == "__main__":
     cleanup()
