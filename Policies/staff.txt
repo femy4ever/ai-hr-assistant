@@ -1,0 +1,10 @@
+1,Alice Chen,Data,Data Engineer,"python,sql,airflow,gcp",
+2,Mark Smith,Data,Analyst,"excel,sql,tableau,powerbi"
+3,Janet Singh,Engineering,Software Developer,"python,java,git,cloud",
+4,Carl Peters,Finance,Analyst,"excel,finance,sql",
+5,Sarah Jones,HR,HR Advisor,"hr,communication,policy,excel",
+6,Tom Reed,Data,Analyst,"sql,r,python,data-modelling",
+7,Priya Patel,Engineering,Software Developer,"python,typescript,react,cloud",
+8,Hassan Ali,Support,Support Specialist,"customer-service,logging,kpi",
+9,Elaine Wu,Data,Data Engineer,"python,sql,spark,aws",
+10,Liam Rogers,Engineering,Tech Lead,"architecture,cloud,leadership,python"
