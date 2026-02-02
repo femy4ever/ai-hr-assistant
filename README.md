@@ -1,40 +1,13 @@
-# Data CoP AI event
-
 ## Welcome
 
 AI use has grown rapidly over the last few years. Far from being a sci-fi replacement for humans, where it really shines is in automating the boring, repetitive, or slow parts of our day. Most of the value isn’t in building huge, complicated systems, but in streamlining simple ones.
 
 This event is about exploring practical, lightweight uses of AI. What can we build in a few hours that’s actually useful? By the end of the day we should have a better sense of how these tools behave, where they’re strong, where they fall over, and how to use them with minimal effort.
 
-We’re keeping it deliberately simple with one core task and an optional extra:
+Keeping it deliberately simple with one core task and an optional extra:
 
 * A HR chatbot that can answer questions using policy text.
 
-* A recommender that matches staff to roles based on skills.
-
-These are small problems where AI solutions can shine and provide immediate value.
-
-Today is a chance to see how this works in practice and start spotting similar opportunities in our own teams and projects.
-
-## Timetable
-
-*10:00 AM* - Welcome and Introduction
-
-*10:15 AM* - Planning
-
-*10:30 AM* - Build 1
-
-*12:30 PM* - Lunch
-
-*13:30 PM* - Recap & Planning
-
-*13:45 PM* - Build 2
-
-*15:45 PM* - Finishing Touches
-
-*16:00 PM* - Demo & Discuss
-
-*17:00 PM* - It's Over
 
 ## Tooling
 
