@@ -2,7 +2,7 @@
 
 AI use has grown rapidly over the last few years. Far from being a sci-fi replacement for humans, where it really shines is in automating the boring, repetitive, or slow parts of our day. Most of the value isn’t in building huge, complicated systems, but in streamlining simple ones.
 
-This event is about exploring practical, lightweight uses of AI. What can we build in a few hours that’s actually useful? By the end of the day we should have a better sense of how these tools behave, where they’re strong, where they fall over, and how to use them with minimal effort.
+This project is about exploring practical, lightweight uses of AI. What can we build in a few hours that’s actually useful? By the end of the day, we should have a better sense of how these tools behave, where they’re strong, where they fall over, and how to use them with minimal effort.
 
 Keeping it deliberately simple with one core task and an optional extra:
 
@@ -31,19 +31,18 @@ The 'proper' name for the simple pattern we’re using:
 * Feed it into the Gemini model to answer the question.
 
 ## API keys
-
-These will be provided on the day along with a demo of how to obtain them.
+use your na
 
 ## Getting started
 
-#### 1 - Clone the starter pack from [Github](https://github.com/jrh-dev/data_cop_ai_event).
+#### 1 - Clone the starter pack
 
 ```bash
 # https
-git clone https://github.com/jrh-dev/data_cop_ai_event.git
+git clone https://github.com/femy4ever/AL_hr_assistant.git
 
 # ssh
-git clone git@github.com:jrh-dev/data_cop_ai_event.git
+git clone https://github.com/femy4ever/AL_hr_assistant.git
 ```
 
 #### 2 - Create an environment.
