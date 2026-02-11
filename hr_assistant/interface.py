@@ -3,8 +3,7 @@ import os
 import chromadb
 from chromadb.utils import embedding_functions
 from google import genai
-from tenacity import retry, stop_after_attempt, wait_exponential 
-
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 class Interface:
     def __init__(self, name: str):
@@ -13,11 +12,12 @@ class Interface:
             self.api_key = os.environ["GEMINI_API_KEY"]
         except KeyError:
             raise RuntimeError("GEMINI_API_KEY environment variable not set")
+        
         self.client = genai.Client(api_key=self.api_key)
         self.chroma = chromadb.Client()
         self.embedding = embedding_functions.GoogleGenerativeAiEmbeddingFunction(
             api_key=self.api_key,
-            model_name="models/text-embedding-004",
+            model_name="text-embedding-004", 
         )
         self.collection = self._create_collection(name)
 
@@ -29,7 +29,7 @@ class Interface:
             name=name, embedding_function=self.embedding
         )
 
-    def _chunk_text(self, text: str, chunk_size=100, overlap=20):
+    def _chunk_text(self, text: str, chunk_size=1000, overlap=100):
         # split based on paragraph, double new lines
         return text.split("\n\n")
 
@@ -76,7 +76,8 @@ class Interface:
         )
 
         response = self.client.models.generate_content(
-            model="models/gemini-2.5-flash", contents=prompt
+            model="gemini-2.0-flash",
+            contents=prompt
         )
 
         return response.text
