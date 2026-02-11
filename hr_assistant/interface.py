@@ -17,7 +17,7 @@ class Interface:
         self.chroma = chromadb.Client()
         self.embedding = embedding_functions.GoogleGenerativeAiEmbeddingFunction(
             api_key=self.api_key,
-            model_name="text-embedding-004", 
+            model_name="embedding-001", 
         )
         self.collection = self._create_collection(name)
 
