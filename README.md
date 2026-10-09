@@ -31,11 +31,11 @@ The 'proper' name for the simple pattern we’re using:
 * Feed it into the Gemini model to answer the question.
 
 ## API keys
-use your na
+Copy `example.env` to `.env` and add your Gemini API key.
 
 ## Getting started
 
-#### 1 - Clone the starter pack
+#### 1 - Clone the repo
 
 ```bash
 # https
@@ -74,7 +74,7 @@ python -m venv .venv
 pip install -r requirements.txt
 
 # 3. Set Gemini API key
-env$GEMINI_API_KEY="<API_KEY>"
+$env:GEMINI_API_KEY="<API_KEY>"
 
 # 4. Run the demo
 cd hr_assistant
@@ -93,3 +93,9 @@ python demo.py
 * API errors - check api key is present in environment
 
 * Slow retrieval - reduce `chunk_size`
+
+## Origins
+
+This project began at the **Data CoP AI event**, a one-day hackathon on practical, lightweight AI. The organisers' [starter pack](https://github.com/jrh-dev/data_cop_ai_event) and the team's work on the day are kept in this repo's history (November 2025). I then carried it on into a fuller HR assistant from December 2025 onwards.
+
+Thanks to James Hardy and Matthew O'Neill for the starter pack and early contributions.
